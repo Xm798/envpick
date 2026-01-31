@@ -1,0 +1,15 @@
+[personal]
+ANTHROPIC_BASE_URL = "https://api.anthropic.com"
+ANTHROPIC_API_KEY = "sk-ant-personal-xxxxx"
+ANTHROPIC_MODEL = "claude-sonnet-4-5"
+ANTHROPIC_SMALL_FAST_MODEL = "claude-haiku-4"
+API_TIMEOUT_MS = "300000"
+_web_url = "https://console.anthropic.com"
+
+[work]
+ANTHROPIC_BASE_URL = "https://api.company.com"
+ANTHROPIC_API_KEY = "sk-work-xxxxx"
+ANTHROPIC_MODEL = "claude-opus-4-5"
+ANTHROPIC_SMALL_FAST_MODEL = "claude-sonnet-4-5"
+API_TIMEOUT_MS = "600000"
+_web_url = "https://dashboard.company.com"

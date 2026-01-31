@@ -10,6 +10,8 @@ A CLI tool for managing multiple environment variable configurations with intera
 
 This guide helps you get started with envpick in 3 simple steps.
 
+![Demo](docs/vhs/demo.gif)
+
 ### 1. Set up your shell (zsh)
 
 Add to `~/.zshrc`:

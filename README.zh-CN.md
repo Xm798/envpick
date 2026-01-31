@@ -10,6 +10,8 @@
 
 本指南帮助您通过 3 个简单步骤开始使用 envpick。
 
+![Demo](docs/vhs/demo.gif)
+
 ### 1. 设置你的 shell (zsh)
 
 在 `~/.zshrc` 中添加:
