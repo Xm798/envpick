@@ -1,5 +1,7 @@
 # envpick
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 A CLI tool for managing multiple environment variable configurations with interactive selection via fzf.
 
 **[Installation Guide](docs/installation.md)** | Quick Start below
@@ -70,23 +72,6 @@ ep use
 
 This opens fzf for interactive selection. Your choice persists across new terminal sessions.
 
-### Temporary Configuration (One-time Use)
-
-For temporary configuration changes that don't persist:
-
-```bash
-# Interactive selection (current terminal only)
-ep tmp
-
-# Direct selection
-ep tmp work
-
-# With namespace
-ep tmp -n db staging
-```
-
-Use `ep tmp` when you need different environment variables for a single terminal session without changing your persistent configuration.
-
 ### Using Namespaces (Advanced)
 
 When you have multiple groups of related configurations (e.g., databases, APIs), use namespaces:
@@ -109,6 +94,23 @@ ep use -n db
 ```
 
 Each namespace maintains its own state independently.
+
+### Temporary Configuration (One-time Use)
+
+For temporary configuration changes that don't persist:
+
+```bash
+# Interactive selection (current terminal only)
+ep tmp
+
+# Direct selection
+ep tmp work
+
+# With namespace
+ep tmp -n db staging
+```
+
+Use `ep tmp` when you need different environment variables for a single terminal session without changing your persistent configuration.
 
 ## Features
 

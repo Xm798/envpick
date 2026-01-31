@@ -1,16 +1,16 @@
-# Installation Guide
+# 安装指南
 
-[English](installation.md) | [简体中文](installation.zh-CN.md)
+[English](installation.md) | 简体中文
 
-## Prerequisites
+## 前置要求
 
-envpick requires **fzf** for interactive selection. Install fzf from [https://github.com/junegunn/fzf](https://github.com/junegunn/fzf).
+envpick 需要 **fzf** 进行交互式选择。从 [https://github.com/junegunn/fzf](https://github.com/junegunn/fzf) 安装 fzf。
 
-## Install envpick
+## 安装 envpick
 
-### Option 1: Pre-built Binary (Recommended)
+### 方式 1: 预编译二进制文件（推荐）
 
-Download the latest release for your platform from the [releases page](https://github.com/LinHanLab/envpick/releases).
+从 [releases 页面](https://github.com/LinHanLab/envpick/releases) 下载适合你平台的最新版本。
 
 **Linux (x86_64)**
 ```bash
@@ -38,17 +38,17 @@ sudo mv envpick /usr/local/bin/
 
 **Windows**
 
-Download `envpick_Windows_x86_64.zip` or `envpick_Windows_arm64.zip` from the releases page, extract it, and add the directory to your PATH.
+从 releases 页面下载 `envpick_Windows_x86_64.zip` 或 `envpick_Windows_arm64.zip`，解压后将目录添加到你的 PATH。
 
-### Option 2: Install via Go
+### 方式 2: 通过 Go 安装
 
-If you have Go installed:
+如果你已经安装了 Go:
 
 ```bash
 go install github.com/LinHanLab/envpick@latest
 ```
 
-### Option 3: Build from Source
+### 方式 3: 从源码编译
 
 ```bash
 git clone https://github.com/LinHanLab/envpick.git
@@ -57,6 +57,6 @@ make compile
 sudo mv envpick /usr/local/bin/
 ```
 
-## Next Steps
+## 下一步
 
-After installation, see the [Quick Start guide](../README.md#quick-start) to configure and use envpick.
+安装完成后，查看[快速开始指南](../README.zh-CN.md#快速开始)来配置和使用 envpick。
