@@ -4,13 +4,13 @@
 
 A CLI tool for managing multiple environment variable configurations with interactive selection via fzf.
 
+<img src="docs/vhs/demo.gif" width="800" alt="Demo">
+
 **[Installation Guide](docs/installation.md)** | Quick Start below
 
 ## Quick Start
 
 This guide helps you get started with envpick in 3 simple steps.
-
-![Demo](docs/vhs/demo.gif)
 
 ### 1. Set up your shell (zsh)
 

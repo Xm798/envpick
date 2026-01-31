@@ -4,13 +4,13 @@
 
 一个通过 fzf 交互式选择管理多个环境变量配置的 CLI 工具。
 
+<img src="docs/vhs/demo.gif" width="800" alt="Demo">
+
 **[安装指南](docs/installation.zh-CN.md)** | 下方快速开始
 
 ## 快速开始
 
 本指南帮助您通过 3 个简单步骤开始使用 envpick。
-
-![Demo](docs/vhs/demo.gif)
 
 ### 1. 设置你的 shell (zsh)
 
