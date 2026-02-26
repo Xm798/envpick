@@ -76,15 +76,24 @@ func (e *TestEnv) StateExists() bool {
 	return err == nil
 }
 
-// SetHome sets HOME environment variable to test directory
+// SetHome sets HOME environment variable to test directory and clears XDG_CONFIG_HOME
+// to ensure GetConfigDir() resolves paths relative to the test HOME
 func (e *TestEnv) SetHome() func() {
 	e.T.Helper()
 	oldHome := os.Getenv("HOME")
+	oldXDG := os.Getenv("XDG_CONFIG_HOME")
 	err := os.Setenv("HOME", e.HomeDir)
 	require.NoError(e.T, err, "Failed to set HOME")
+	err = os.Unsetenv("XDG_CONFIG_HOME")
+	require.NoError(e.T, err, "Failed to unset XDG_CONFIG_HOME")
 	return func() {
 		if err := os.Setenv("HOME", oldHome); err != nil {
 			e.T.Logf("Warning: Failed to restore HOME: %v", err)
+		}
+		if oldXDG != "" {
+			if err := os.Setenv("XDG_CONFIG_HOME", oldXDG); err != nil {
+				e.T.Logf("Warning: Failed to restore XDG_CONFIG_HOME: %v", err)
+			}
 		}
 	}
 }

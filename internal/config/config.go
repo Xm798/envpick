@@ -22,13 +22,21 @@ type ConfigEntry struct {
 	WebURL string
 }
 
-// GetConfigDir returns the envpick configuration directory
+// GetConfigDir returns the envpick configuration directory.
+// Uses $XDG_CONFIG_HOME/envpick/ if set and ~/.envpick/ doesn't already exist.
 func GetConfigDir() (string, error) {
 	home, err := os.UserHomeDir()
 	if err != nil {
 		return "", fmt.Errorf(text.Text.Errors.ConfigHomeDir, err)
 	}
-	return filepath.Join(home, ".envpick"), nil
+
+	defaultDir := filepath.Join(home, ".envpick")
+	if xdgHome := os.Getenv("XDG_CONFIG_HOME"); xdgHome != "" {
+		if _, err := os.Stat(defaultDir); os.IsNotExist(err) {
+			return filepath.Join(xdgHome, "envpick"), nil
+		}
+	}
+	return defaultDir, nil
 }
 
 // GetConfigPath returns the path to config.toml

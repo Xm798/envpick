@@ -34,7 +34,7 @@ source ~/.zshrc
 
 ### 2. 创建你的配置
 
-envpick 使用 `~/.envpick/config.toml` 存储你的环境配置:
+envpick 使用 `~/.envpick/config.toml` 存储你的环境配置（如果设置了 `$XDG_CONFIG_HOME`，则使用 `$XDG_CONFIG_HOME/envpick/config.toml`）:
 
 ```toml
 [personal]

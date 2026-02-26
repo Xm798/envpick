@@ -1,10 +1,61 @@
 package config
 
 import (
+	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
+
+func TestGetConfigDir(t *testing.T) {
+	tests := []struct {
+		name        string
+		setup       func(t *testing.T, homeDir string)
+		xdgHome     string
+		expectedDir string // relative to homeDir
+	}{
+		{
+			name: "legacy ~/.envpick/ exists",
+			setup: func(t *testing.T, homeDir string) {
+				require.NoError(t, os.MkdirAll(filepath.Join(homeDir, ".envpick"), 0755))
+			},
+			expectedDir: ".envpick",
+		},
+		{
+			name:        "XDG_CONFIG_HOME set, no legacy dir",
+			xdgHome:     "", // will be set to homeDir/.xdg-config in test
+			expectedDir: ".xdg-config/envpick",
+		},
+		{
+			name:        "fallback to ~/.envpick/",
+			expectedDir: ".envpick",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			homeDir := t.TempDir()
+			t.Setenv("HOME", homeDir)
+
+			if tt.setup != nil {
+				tt.setup(t, homeDir)
+			}
+
+			if tt.name == "XDG_CONFIG_HOME set, no legacy dir" {
+				xdgDir := filepath.Join(homeDir, ".xdg-config")
+				t.Setenv("XDG_CONFIG_HOME", xdgDir)
+			} else {
+				t.Setenv("XDG_CONFIG_HOME", "")
+			}
+
+			got, err := GetConfigDir()
+			require.NoError(t, err)
+			assert.Equal(t, filepath.Join(homeDir, tt.expectedDir), got)
+		})
+	}
+}
 
 func TestParseConfigName(t *testing.T) {
 	tests := []struct {

@@ -34,7 +34,7 @@ This enables completion and adds the `ep` shortcut command.
 
 ### 2. Create your configuration
 
-envpick uses `~/.envpick/config.toml` to store your environment configurations:
+envpick uses `~/.envpick/config.toml` to store your environment configurations (or `$XDG_CONFIG_HOME/envpick/config.toml` if set):
 
 ```toml
 [personal]
